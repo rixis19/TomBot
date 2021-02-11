@@ -1,0 +1,13 @@
+C:\Users\gates\TomBot\TomBot\bin\Debug\netcoreapp3.1\TomBot.exe
+C:\Users\gates\TomBot\TomBot\bin\Debug\netcoreapp3.1\TomBot.deps.json
+C:\Users\gates\TomBot\TomBot\bin\Debug\netcoreapp3.1\TomBot.runtimeconfig.json
+C:\Users\gates\TomBot\TomBot\bin\Debug\netcoreapp3.1\TomBot.runtimeconfig.dev.json
+C:\Users\gates\TomBot\TomBot\bin\Debug\netcoreapp3.1\TomBot.dll
+C:\Users\gates\TomBot\TomBot\bin\Debug\netcoreapp3.1\TomBot.pdb
+C:\Users\gates\TomBot\TomBot\obj\Debug\netcoreapp3.1\TomBot.csprojAssemblyReference.cache
+C:\Users\gates\TomBot\TomBot\obj\Debug\netcoreapp3.1\TomBot.AssemblyInfoInputs.cache
+C:\Users\gates\TomBot\TomBot\obj\Debug\netcoreapp3.1\TomBot.AssemblyInfo.cs
+C:\Users\gates\TomBot\TomBot\obj\Debug\netcoreapp3.1\TomBot.csproj.CoreCompileInputs.cache
+C:\Users\gates\TomBot\TomBot\obj\Debug\netcoreapp3.1\TomBot.dll
+C:\Users\gates\TomBot\TomBot\obj\Debug\netcoreapp3.1\TomBot.pdb
+C:\Users\gates\TomBot\TomBot\obj\Debug\netcoreapp3.1\TomBot.genruntimeconfig.cache
