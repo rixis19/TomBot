@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TomBot.Services;
 using System.Linq;
 using Serilog;
+using TomBot.Database;
 
 namespace TomBot
 {
@@ -27,7 +28,7 @@ namespace TomBot
                 _logLevel = args[0];
             } 
             Log.Logger = new LoggerConfiguration()
-                .WriteTo.File("logs/csharpi.log", rollingInterval: RollingInterval.Day)
+                .WriteTo.File("logs/TomBot.log", rollingInterval: RollingInterval.Day)
                 .WriteTo.Console()
                 .CreateLogger();
 
@@ -86,7 +87,7 @@ namespace TomBot
         {
             // this returns a ServiceProvider that is used later to call for those services
             // we can add types we have access to here, hence adding the new using statement:
-            // using csharpi.Services;
+            // using TomBot.Services;
             // the config we build is also added, which comes in handy for setting the command prefix!
             var services = new ServiceCollection()
                 .AddSingleton(_config)
@@ -94,6 +95,7 @@ namespace TomBot
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandler>()
                 .AddSingleton<LoggingService>()
+                .AddDbContext<TomBotEntities>() 
                 .AddLogging(configure => configure.AddSerilog());
 
             if (!string.IsNullOrEmpty(_logLevel)) 
