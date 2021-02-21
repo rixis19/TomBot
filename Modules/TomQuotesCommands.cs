@@ -18,9 +18,16 @@ namespace TomBot.Modules
         private readonly TomBotEntities _db;
         private readonly IConfiguration _config;
         private Random rng = new Random();
+
+        public TomQuotesCommands(IServiceProvider services)
+        {
+            _db = services.GetRequiredService<TomBotEntities>();
+            _config = services.GetRequiredService<IConfiguration>();
+        }
+
         //tomquote recall
         [Command("tomquote")]
-        public async Task TomQuoteCommand()
+        public async Task TomQuoteCommand([Remainder]string args = null)
         {
             var sb = new StringBuilder();
             var embed = new EmbedBuilder();

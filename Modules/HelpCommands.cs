@@ -13,13 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace TomBot.Modules
 {
-    public class RememberCommands : ModuleBase
+    public class HelpCommands : ModuleBase
     {
-        //remembers something from the chat log
-        [Command("remember")]
-        public async Task RememberCommand()
-        {
-            
-        }
+
     }
 }

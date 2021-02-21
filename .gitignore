@@ -1,0 +1,13 @@
+/bin/
+bin/
+obj/
+/obj/
+Migrations/
+/Migrations/
+
+*.json
+
+/.vscode/
+/.vs/
+
+*.db*
