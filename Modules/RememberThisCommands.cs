@@ -41,10 +41,17 @@ namespace TomBot.Modules
             await _db.SaveChangesAsync();   
             sb.AppendLine("I'll try to remember that");
             await ReplyAsync(sb.ToString());
+
+            await Task.Delay(5000);
+            var messages = Context.Channel.GetMessagesAsync(2).Flatten();
+            foreach (var h in  await messages.ToArrayAsync())
+            {
+                await this.Context.Channel.DeleteMessageAsync(h);
+            }
         }
 
         [Command("recall")]
-        public async Task GetResponse([Remainder]string args = null)
+        public async Task Recall([Remainder]string args = null)
         {
             var sb = new StringBuilder();
             var embed = new EmbedBuilder();
@@ -61,5 +68,24 @@ namespace TomBot.Modules
 
             await ReplyAsync(null, false, embed.Build());
         }
+
+        /*[Command("recall")]
+        public async Task RecallUser([Remainder]string user)
+        {
+            var sb = new StringBuilder();
+            var embed = new EmbedBuilder();
+
+            var replies = await _db.RememberThis.ToListAsync();
+            var answer = replies[new Random().Next(replies.Count)];
+
+            
+            embed.Title = $"Remember when **{answer.AnswerAuthor}** said...";
+            sb.AppendLine($"...\"**{answer.AnswerText}**\".");
+
+            embed.WithColor(0, 255, 0);
+            embed.Description = sb.ToString();
+
+            await ReplyAsync(null, false, embed.Build());
+        }*/
     }
 }
