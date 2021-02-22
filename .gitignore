@@ -10,4 +10,7 @@ Migrations/
 /.vscode/
 /.vs/
 
-*.db*
+/logs/
+/logs
+*.log
+
