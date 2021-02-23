@@ -51,7 +51,7 @@ namespace TomBot.Modules
         }
 
         [Command("recall")]
-        public async Task Recall([Remainder]string args = null)
+        public async Task Recall()
         {
             var sb = new StringBuilder();
             var embed = new EmbedBuilder();
@@ -69,15 +69,18 @@ namespace TomBot.Modules
             await ReplyAsync(null, false, embed.Build());
         }
 
-        /*[Command("recall")]
+        [Command("recall")]
         public async Task RecallUser([Remainder]string user)
         {
             var sb = new StringBuilder();
             var embed = new EmbedBuilder();
-
             var replies = await _db.RememberThis.ToListAsync();
-            var answer = replies[new Random().Next(replies.Count)];
+            var answer = replies[new Random().Next(replies.Count)];;
 
+            while(!answer.AnswerAuthor.Equals(user))
+            {
+                answer = replies[new Random().Next(replies.Count)];
+            }
             
             embed.Title = $"Remember when **{answer.AnswerAuthor}** said...";
             sb.AppendLine($"...\"**{answer.AnswerText}**\".");
@@ -86,6 +89,6 @@ namespace TomBot.Modules
             embed.Description = sb.ToString();
 
             await ReplyAsync(null, false, embed.Build());
-        }*/
+        }
     }
 }

@@ -83,7 +83,6 @@ namespace TomBot.Services
                 _logger.LogError($"Command failed to execute for [{context.User.Username}] <-> [{result.ErrorReason}]!");
                 return;
             }
-                
 
             // log success to the console and exit this method
             if (result.IsSuccess)
