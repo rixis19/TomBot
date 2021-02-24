@@ -15,31 +15,33 @@ namespace TomBot.Modules
 {
     public class TacbuxCommands : ModuleBase
     {
-        [Command("addTacbux")]
-        public async Task AddTacbux()
-        {
+        private readonly TomBotEntities _db;
+        private readonly IConfiguration _config;
+        private Random rng = new Random();
 
+        [Command("addTacbux")]
+        public async Task AddTacbux(string user, int amount)
+        {
+            if(Context.User.Equals(await Context.Guild.GetOwnerAsync()))
+            {
+                
+            }
+            else
+            {
+
+            }
+            await ReplyAsync();
         }
 
         [Command("checkServerOwner")]
         public async Task checkServerOwner()
         {
             var sb = new StringBuilder();
-            var admin = Context.Guild.OwnerId.ToString();
-            var user = Context.User.ToString();
-
-            /*if(user.Equals(admin))
-            {
-                sb.AppendLine($"User: {user}, Admin:{admin}");
-                sb.AppendLine($"true");
-            }
-            else
-            {
-                sb.AppendLine($"User: {user}, Admin:{admin}");
-                sb.AppendLine("false");
-            }*/
             
-            //sb.AppendLine($"{admin.ToString()}");
+            if(Context.User.Equals(await Context.Guild.GetOwnerAsync()))
+                sb.AppendLine("true");
+            else
+                sb.AppendLine("false");
 
             await ReplyAsync(sb.ToString());
         }

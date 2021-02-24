@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TomBot.Database
 {
-    public partial class RememberThis
+    public partial class TacbuxTotals
     {
         [Key]
         public long UserId { get; set; }
