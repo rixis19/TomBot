@@ -21,7 +21,19 @@ namespace TomBot.Services
 
         public UserLoggingService(IServiceProvider services)
         {
+            // juice up the fields with these services
+            // since we passed the services in, we can use GetRequiredService to pass them into the fields set earlier
+            _config = services.GetRequiredService<IConfiguration>();
+            _commands = services.GetRequiredService<CommandService>();
+            _client = services.GetRequiredService<DiscordSocketClient>();
+            _logger = services.GetRequiredService<ILogger<CommandHandler>>();
+            _services = services;
+            
+            // take action when we execute a command
+            //_commands.CommandExecuted += CommandExecutedAsync;
 
+            // take action when we receive a message (so we can process it, and see if it is a valid command)
+            //_client.MessageReceived += MessageReceivedAsync;
         }
     }
 }
