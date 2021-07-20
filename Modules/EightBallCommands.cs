@@ -29,6 +29,7 @@ namespace TomBot.Modules
             _validColors.Add("green");
             _validColors.Add("red");
             _validColors.Add("blue");
+            _validColors.Add("yellow");
         }
 
         [Command("add")]
