@@ -84,11 +84,25 @@ namespace TomBot.Services
                 return;
             }
 
-            // log success to the console and exit this method
-            if (result.IsSuccess)
+            if(result.Error.ToString().Equals("BadArgCount"))
             {
-                _logger.LogInformation($"Command [{command.Value.Name}] executed for [{context.User.Username}] on [{context.Guild.Name}]");
+                 await context.Channel.SendMessageAsync("You're missing something, ploob.");
                 return;
+            }
+
+            if(result.IsSuccess)
+            {
+                // log success to the console and exit this method
+                try
+                {
+                    _logger.LogInformation($"Command [{command.Value.Name}] executed for [{context.User.Username}] on [{context.Guild.Name}]");
+                    return;
+                }
+                catch(NullReferenceException)
+                {
+                    _logger.LogInformation($"Command [{command.Value.Name}] executed for [{context.User.Username}]");
+                    return;
+                }
             }
             
             // failure scenario, let's let the user know
